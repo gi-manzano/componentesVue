@@ -1,25 +1,95 @@
-|<!DOCTYPE html>
-<html lang="en">
-<head>
-    
+<html>
+  <head>
     <title>Componentes</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
-</head>
-<body>
-<div>
-  <thead>
-      <tbody>
-      <th>Nombre</th>
-      <th>Puesto</th>
-      <th>Año</th>
-      </tbody>
-  </thead>
+    <link rel="stylesheet" href="css/style.css">
+    
+  </head>
+  <body>
+    <div id="app">
+       
+        <table class="table">
+            <thead class="head">
+                <tr>
+                    <td>Meal</td>
+                    <td >Precio</td>
+                    <td>Stock</td>
+                </tr>
+            </thead>
+            <tbody>
+             
+                <tr v-for="(item,i) in platos" :key="i" :class='{"disponible":item.stock >3}'>
+                    <td><meal-listado :estilo="estilo" :dato="item.meal"></meal-listado></td>
+                    <td><meal-listado :dato="item.precio"></meal-listado></td>
+                    <td><meal-listado :dato="item.stock"></meal-listado></td>
+                </tr>
+              
+            </tbody>
+        </table>
+    </div>
 
-</div>
+    <script>   
 
+        Vue.component('mealListado',{
+            props:{
+              estilo: Boolean,
+              dato: String,
+              platos: Array
+              
+            },
+            template: //html
 
+            `
+           
+            <span style= "{{ estilo }}"> 
+              {{ dato }}
+              {{ platos }}
+            </span>
+            <table>
+              <tbody>
+                <tr v-for="(item,i) in platos" :key="i" :class='{"disponible":item.stock >3}'>
+                </tbody>
+              </table>
+            
+            
+              `
+        })
+ 
+
+        var app = new Vue( {
+            el:'#app',
+            data:{
+                platos: [
+
+                    {
+                      "meal": "Fideos a la boloñesa ",
+                      "precio": 350,
+                      "stock": 2
+                    },
+
+                    {"meal": "Pizza a la napolitana",
+                    "precio": 400,
+                    "stock": 4
+                  },
+
+                    {"meal": "Milanesas con pure",
+                    "precio": 300,
+                    "stock": 5
+                  },
+
+                    {"meal": "Ensalada caprese",
+                    "precio": 500,
+                    "stock": 7
+                  },
+                    
+                ],
+                estilo: {color: "yellow"}
+            },
+           
+        });
+    </script>
 </body>
 </html>

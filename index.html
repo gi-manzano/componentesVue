@@ -17,16 +17,16 @@
                     <td>Meal</td>
                     <td >Precio</td>
                     <td>Stock</td>
+                    <td>Id</td>
                 </tr>
             </thead>
             <tbody>
-             
                 <tr v-for="(item,i) in platos" :key="i" :class='{"disponible":item.stock >3}'>
                     <td><meal-listado :estilo="estilo" :dato="item.meal"></meal-listado></td>
-                    <td><meal-listado :dato="item.precio"></meal-listado></td>
+                    <td>$<meal-listado :dato="item.precio"></meal-listado></td>
                     <td><meal-listado :dato="item.stock"></meal-listado></td>
+                    <td><meal-listado :dato="item.id"></meal-listado></td>
                 </tr>
-              
             </tbody>
         </table>
     </div>
@@ -34,12 +34,12 @@
     <script>   
 
         Vue.component('mealListado',{
-            props:{
-              estilo: Boolean,
+            props: {
+              estiloNuevo: Object,
               dato: String,
               platos: Array
-              
             },
+
             template: //html
 
             `
@@ -50,7 +50,7 @@
             </span>
             <table>
               <tbody>
-                <tr v-for="(item,i) in platos" :key="i" :class='{"disponible":item.stock >3}'>
+                <tr v-for="(item,i) in platos" :key="item" {{item.stock}}>
                 </tbody>
               </table>
             
@@ -62,31 +62,41 @@
         var app = new Vue( {
             el:'#app',
             data:{
+
                 platos: [
 
                     {
+                      "id": 1,
                       "meal": "Fideos a la boloñesa ",
                       "precio": 350,
                       "stock": 2
                     },
 
-                    {"meal": "Pizza a la napolitana",
+                  {
+                    "id": 2,
+                    "meal": "Pizza a la napolitana",
                     "precio": 400,
                     "stock": 4
                   },
 
-                    {"meal": "Milanesas con pure",
+                  {
+                    "id": 3,
+                    "meal": "Milanesas con pure",
                     "precio": 300,
                     "stock": 5
                   },
 
-                    {"meal": "Ensalada caprese",
+                    
+                  {
+                    "id": 4,
+                    "meal": "Ensalada caprese",
                     "precio": 500,
                     "stock": 7
                   },
+              
                     
                 ],
-                estilo: {color: "yellow"}
+                estilo: {'background' : "yellow"}
             },
            
         });

@@ -1,7 +1,7 @@
 Vue.component('MealListado',{
     props: {
       estilo: Object,
-      dato: Array,
+      dato: String,
       platos: Array
     },
 
@@ -11,6 +11,7 @@ Vue.component('MealListado',{
   <div>
     <span v-bind:style= "estilo">
       {{ dato }} 
+      {{ platos }}
     </span>
   </div>
 

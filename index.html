@@ -15,24 +15,21 @@
       
         <table class="table">
             <thead class="head">
-                <tr>
-                    <td>Meal</td>
-                    <td >Precio</td>
-                    <td>Stock</td>
-                    
-                </tr>
+              <tr>
+                <td>Meal</td>
+                <td >Precio</td>
+                <td>Stock</td>    
+              </tr>
             </thead>
 
-            <tbody>
-                <tr v-for="(item,index) in platos" :key="item.id"> 
-                    <td> <meal-listado :estilo="estilo" :dato="item.meal"></meal-listado></td>
-                    <td>$<meal-listado :dato="item.precio"></meal-listado></td>
-                    <td> <meal-listado :dato="item.stock"></meal-listado></td>
+            <tbody class="tbody">
+              <tr v-for="(item,index) in platos" :key="item.id"> 
+                <td> <meal-listado :estilo="estilo" :dato="item.meal"></meal-listado></td>
+                <td>$<meal-listado :dato="item.precio"></meal-listado></td>
+                <td> <meal-listado :dato="item.stock"></meal-listado></td>
                     
-                </tr>
+              </tr>
             </tbody>
-            
-
         </table>
       
     </div>

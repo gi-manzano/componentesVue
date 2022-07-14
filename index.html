@@ -24,7 +24,7 @@
 
             <tbody class="tbody">
               <tr v-for="(item,index) in platos" :key="item.id"> 
-                <td> <meal-listado :estilo="estilo" :dato="item.meal"></meal-listado></td>
+                <td> <meal-listado :estilo="estilo" :platos="item.meal"></meal-listado></td>
                 <td>$<meal-listado :dato="item.precio"></meal-listado></td>
                 <td> <meal-listado :dato="item.stock"></meal-listado></td>
                     

@@ -2,17 +2,15 @@
   <head>
     <title>Componentes</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
-   
     <link rel="stylesheet" href="css/style.css">
     
   </head>
   <body>
+    <!-- desarrollo de mi app y componente -->
     <div id="app">
-      
         <table class="table">
             <thead class="head">
               <tr>
@@ -21,17 +19,15 @@
                 <td>Stock</td>    
               </tr>
             </thead>
-
             <tbody class="tbody">
               <tr v-for="(item,index) in platos" :key="item.id"> 
                 <td> <meal-listado :estilo="estilo" :platos="item.meal"></meal-listado></td>
-                <td>$<meal-listado :dato="item.precio"></meal-listado></td>
-                <td> <meal-listado :dato="item.stock"></meal-listado></td>
+                <td>$<meal-listado :precio="item.precio"></meal-listado></td>
+                <td> <meal-listado :stock="item.stock"></meal-listado></td>
                     
               </tr>
             </tbody>
         </table>
-      
     </div>
 
     <script src="/js/app.js"></script></script>

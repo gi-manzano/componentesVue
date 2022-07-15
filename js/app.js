@@ -1,8 +1,9 @@
 Vue.component('MealListado',{
     props: {
       estilo: Object,
-      dato: String,
-      platos: Array
+      stock: Number,
+      platos: String,
+      precio: Number
     },
 
     template: //html
@@ -10,12 +11,11 @@ Vue.component('MealListado',{
     `
   <div>
     <span v-bind:style= "estilo">
-      {{ dato }} 
+      {{ stock }} 
       {{ platos }}
+      {{ precio }}
     </span>
   </div>
-
-
       `
       
 });
